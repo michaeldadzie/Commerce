@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/providers/cart.dart';
+import 'package:shop_app/screens/cart_screen.dart';
 import 'screens/product_overview_screen.dart';
 import 'screens/product_detail_screen.dart';
 import 'providers/products.dart';
@@ -21,11 +23,16 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'MyShop',
-        theme:
-            ThemeData(primarySwatch: Colors.red, accentColor: Colors.redAccent),
+        theme: ThemeData(
+            primarySwatch: Colors.red,
+            accentColor: Colors.redAccent,
+            textTheme: GoogleFonts.ralewayTextTheme(
+              Theme.of(context).textTheme,
+            )),
         home: ProductsOverviewScreen(),
         routes: {
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+          CartScreen.routeName: (ctx) => CartScreen(),
         },
       ),
     );
