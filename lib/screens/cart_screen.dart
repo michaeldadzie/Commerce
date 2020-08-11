@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/providers/cart.dart' show Cart;
+import 'package:shop_app/providers/orders.dart';
 import 'package:shop_app/widgets/cart_item.dart';
 
 class CartScreen extends StatelessWidget {
@@ -26,7 +27,7 @@ class CartScreen extends StatelessWidget {
                   Spacer(),
                   Chip(
                     label: Text(
-                      '\$${cart.totalAmount}',
+                      '\$${cart.totalAmount.toStringAsFixed(2)}',
                       style: GoogleFonts.raleway(color: Colors.white),
                     ),
                     backgroundColor: Theme.of(context).primaryColor,
@@ -36,7 +37,13 @@ class CartScreen extends StatelessWidget {
                       'ORDER NOW',
                       style: GoogleFonts.raleway(color: Colors.red),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<Orders>(context, listen: false).addOrder(
+                        cart.items.values.toList(),
+                        cart.totalAmount,
+                      );
+                      cart.clear();
+                    },
                   ),
                 ],
               ),
@@ -54,7 +61,7 @@ class CartScreen extends StatelessWidget {
                 cart.items.values.toList()[i].title,
               ),
             ),
-          )
+          ),
         ],
       ),
     );
