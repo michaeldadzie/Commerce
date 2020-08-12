@@ -46,8 +46,7 @@ class _OrderItemState extends State<OrderItem> {
                           children: [
                             Text(
                               prod.title,
-                              style: GoogleFonts.raleway(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                              style: GoogleFonts.raleway(fontSize: 18),
                             ),
                             Text(
                               '${prod.quantity}x \$${prod.price}',
