@@ -55,7 +55,7 @@ class ProductItem extends StatelessWidget {
               Scaffold.of(context).hideCurrentSnackBar();
               Scaffold.of(context).showSnackBar(SnackBar(
                 content: Text('Added item to cart'),
-                duration: Duration(seconds: 2),
+                duration: Duration(milliseconds: 1500),
                 action: SnackBarAction(
                   label: 'UNDO',
                   onPressed: () {
