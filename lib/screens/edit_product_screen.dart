@@ -42,8 +42,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
       if ((_imageUrlController.text.startsWith('http') ||
               _imageUrlController.text.startsWith('https')) ||
           (_imageUrlController.text.endsWith('.png') &&
-              _imageUrlController.text.endsWith('ijpg') &&
-              _imageUrlController.text.endsWith('jpeg'))) {
+              _imageUrlController.text.endsWith('.jpg') &&
+              _imageUrlController.text.endsWith('.jpeg'))) {
         return;
       }
       setState(() {});
