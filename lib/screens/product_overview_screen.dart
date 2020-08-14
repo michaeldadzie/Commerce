@@ -22,7 +22,13 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Soulll Shop'),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: new IconThemeData(color: Theme.of(context).primaryColor),
+        title: Text(
+          'Soulll Shop',
+          style: TextStyle(color: Colors.red),
+        ),
         actions: [
           Consumer<Cart>(
             builder: (_, cart, ch) => Badge(

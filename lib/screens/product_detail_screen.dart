@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/providers/products.dart';
+import 'package:shop_app/screens/cart_screen.dart';
+import 'package:shop_app/widgets/badge.dart';
 
 class ProductDetailScreen extends StatelessWidget {
 //  final String title;
@@ -16,13 +19,34 @@ class ProductDetailScreen extends StatelessWidget {
     ).findById(productId);
     return Scaffold(
       appBar: AppBar(
-        title: Text(loadedProduct.title),
+        backgroundColor: Colors.white,
+        iconTheme: new IconThemeData(color: Theme.of(context).primaryColor),
+        title: Text(
+          loadedProduct.title,
+          style: TextStyle(color: Colors.red),
+        ),
+        actions: [
+          Consumer<Cart>(
+            builder: (_, cart, ch) => Badge(
+              child: ch,
+              value: cart.itemCount.toString(),
+            ),
+            child: IconButton(
+              icon: Icon(
+                Icons.shopping_cart,
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartScreen.routeName);
+              },
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              height: 300,
+              height: 200,
               width: double.infinity,
               child: Image.network(
                 loadedProduct.imageUrl,
