@@ -113,7 +113,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
                 child: Text('Cancel'),
                 onPressed: () {
                   Navigator.of(ctx).pop();
-                  //issue: Navigator not popping after cancel
+                  //issue: Navigator not popping after cancel 1.5.4 firebase
+                  //fixed 1.5.4
                 },
               ),
             ],
