@@ -65,17 +65,19 @@ class Products with ChangeNotifier {
 //    notifyListeners();
 //  }
 
-  void addProduct(Product product) {
+  Future<void> addProduct(Product product) {
     const url = 'https://soulllshop.firebaseio.com/products.json';
-    http
-        .post(url,
-            body: json.encode({
-              'title': product.title,
-              'description': product.description,
-              'imageUrl': product.imageUrl,
-              'price': product.price,
-              'isFavorite': product.isFavorite,
-            }))
+    return http
+        .post(
+      url,
+      body: json.encode({
+        'title': product.title,
+        'description': product.description,
+        'imageUrl': product.imageUrl,
+        'price': product.price,
+        'isFavorite': product.isFavorite,
+      }),
+    )
         .then((response) {
       final newProduct = Product(
         title: product.title,
@@ -87,6 +89,9 @@ class Products with ChangeNotifier {
       _items.add(newProduct);
 //    _items.insert(0, newProduct); // add product to start of the list
       notifyListeners();
+    }).catchError((error) {
+      print(error);
+      throw error;
     });
   }
 
