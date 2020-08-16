@@ -12,7 +12,13 @@ class CartScreen extends StatelessWidget {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Your cart'),
+        title: Text(
+          'Your cart',
+          style: TextStyle(color: Colors.red),
+        ),
+        iconTheme: new IconThemeData(color: Colors.red),
+        backgroundColor: Colors.white,
+        elevation: 0,
       ),
       body: Column(
         children: [
