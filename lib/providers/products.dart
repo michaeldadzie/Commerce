@@ -71,6 +71,9 @@ class Products with ChangeNotifier {
     try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      if (extractedData == null) {
+        return;
+      }
       final List<Product> loadedProducts = [];
       extractedData.forEach((prodId, prodData) {
         loadedProducts.add(Product(
@@ -84,7 +87,6 @@ class Products with ChangeNotifier {
       });
       _items = loadedProducts;
       notifyListeners();
-      print(response);
     } catch (error) {
       throw (error);
     }
@@ -119,7 +121,7 @@ class Products with ChangeNotifier {
     }
   }
 
-  void updateProduct(String id, Product newProduct) async {
+  Future<void> updateProduct(String id, Product newProduct) async {
     final prodIndex = _items.indexWhere((prod) => prod.id == id);
     if (prodIndex >= 0) {
       final url = 'https://soulllshop.firebaseio.com/products/$id.json';
