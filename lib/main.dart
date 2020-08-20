@@ -10,6 +10,8 @@ import 'package:shop_app/screens/user_products_screen.dart';
 import 'screens/product_overview_screen.dart';
 import 'screens/product_detail_screen.dart';
 import 'providers/products.dart';
+import 'package:shop_app/screens/auth_screen.dart';
+import 'utils/const.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,13 +32,8 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'MyShop',
-        theme: ThemeData(
-            primarySwatch: Colors.red,
-            accentColor: Colors.redAccent,
-            canvasColor: Colors.white,
-            textTheme: GoogleFonts.ralewayTextTheme(
-              Theme.of(context).textTheme,
-            )),
+        theme: Constants.lightTheme,
+        darkTheme: Constants.darkTheme,
         home: ProductsOverviewScreen(),
         routes: {
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
