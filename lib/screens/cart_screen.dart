@@ -17,7 +17,7 @@ class CartScreen extends StatelessWidget {
           style: TextStyle(color: Colors.red),
         ),
         iconTheme: new IconThemeData(color: Colors.red),
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
       ),
       body: Column(

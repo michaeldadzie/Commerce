@@ -51,9 +51,9 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
-        iconTheme: new IconThemeData(color: Theme.of(context).primaryColor),
+        iconTheme: new IconThemeData(color: Colors.red),
         title: Text(
           'Soulll Shop',
           style: TextStyle(color: Colors.red),
@@ -63,6 +63,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             builder: (_, cart, ch) => Badge(
               child: ch,
               value: cart.itemCount.toString(),
+              color: Colors.red,
             ),
             child: IconButton(
               icon: Icon(
