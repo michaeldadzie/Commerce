@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         title: 'MyShop',
         theme: Constants.lightTheme,
         darkTheme: Constants.darkTheme,
-        home: ProductsOverviewScreen(),
+        home: AuthScreen(),
         routes: {
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
