@@ -16,7 +16,7 @@ class Auth with ChangeNotifier {
         {
           'email': email,
           'password': password,
-          'returnSecureToke': true,
+          'returnSecureToken': true,
         },
       ),
     );
