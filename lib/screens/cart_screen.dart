@@ -34,9 +34,10 @@ class CartScreen extends StatelessWidget {
                   Chip(
                     label: Text(
                       '\$${cart.totalAmount.toStringAsFixed(2)}',
-                      style: GoogleFonts.raleway(color: Colors.white),
+                      style: GoogleFonts.raleway(
+                          color: Theme.of(context).primaryColor),
                     ),
-                    backgroundColor: Theme.of(context).primaryColor,
+                    backgroundColor: Theme.of(context).accentColor,
                   ),
                   OrderButton(cart: cart),
                 ],
