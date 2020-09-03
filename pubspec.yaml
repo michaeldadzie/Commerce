@@ -13,6 +13,7 @@ dependencies:
   google_fonts: ^1.1.0
   intl: ^0.16.1
   http: ^0.12.2
+  shared_preferences: ^0.5.10
   flutter:
     sdk: flutter
 
