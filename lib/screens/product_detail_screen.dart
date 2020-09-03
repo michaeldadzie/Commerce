@@ -19,8 +19,8 @@ class ProductDetailScreen extends StatelessWidget {
     ).findById(productId);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: new IconThemeData(color: Theme.of(context).primaryColor),
+        backgroundColor: Theme.of(context).primaryColor,
+        iconTheme: new IconThemeData(color: Colors.red),
         title: Text(
           loadedProduct.title,
           style: TextStyle(color: Colors.red),
@@ -29,6 +29,7 @@ class ProductDetailScreen extends StatelessWidget {
           Consumer<Cart>(
             builder: (_, cart, ch) => Badge(
               child: ch,
+              color: Colors.red,
               value: cart.itemCount.toString(),
             ),
             child: IconButton(
