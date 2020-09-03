@@ -81,7 +81,9 @@ class _OrderButtonState extends State<OrderButton> {
   Widget build(BuildContext context) {
     return FlatButton(
       child: _isLoading
-          ? CircularProgressIndicator()
+          ? CircularProgressIndicator(
+              backgroundColor: Colors.red,
+            )
           : Text(
               'ORDER NOW',
               style: GoogleFonts.raleway(color: Colors.red),
