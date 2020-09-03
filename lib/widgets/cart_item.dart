@@ -64,11 +64,15 @@ class CartItem extends StatelessWidget {
           padding: EdgeInsets.all(8),
           child: ListTile(
             leading: CircleAvatar(
+              backgroundColor: Colors.red,
               radius: 30,
               child: Padding(
                 padding: EdgeInsets.all(5),
                 child: FittedBox(
-                  child: Text('\$$price'),
+                  child: Text(
+                    '\$$price',
+                    style: GoogleFonts.raleway(color: Colors.black),
+                  ),
                 ),
               ),
             ),
