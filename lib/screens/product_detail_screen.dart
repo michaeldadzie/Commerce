@@ -18,38 +18,44 @@ class ProductDetailScreen extends StatelessWidget {
       listen: false,
     ).findById(productId);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        iconTheme: new IconThemeData(color: Colors.red),
-        title: Text(
-          loadedProduct.title,
-          style: TextStyle(color: Colors.red),
-        ),
-        actions: [
-          Consumer<Cart>(
-            builder: (_, cart, ch) => Badge(
-              child: ch,
-              color: Colors.red,
-              value: cart.itemCount.toString(),
-            ),
-            child: IconButton(
-              icon: Icon(
-                Icons.shopping_cart,
+      // appBar: AppBar(
+      //   backgroundColor: Theme.of(context).primaryColor,
+      //   iconTheme: new IconThemeData(color: Colors.red),
+      //   title: Text(
+      //     loadedProduct.title,
+      //     style: TextStyle(color: Colors.red),
+      //   ),
+      //   actions: [
+      //     Consumer<Cart>(
+      //       builder: (_, cart, ch) => Badge(
+      //         child: ch,
+      //         color: Colors.red,
+      //         value: cart.itemCount.toString(),
+      //       ),
+      //       child: IconButton(
+      //         icon: Icon(
+      //           Icons.shopping_cart,
+      //         ),
+      //         onPressed: () {
+      //           Navigator.of(context).pushNamed(CartScreen.routeName);
+      //         },
+      //       ),
+      //     ),
+      //   ],
+      // ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            iconTheme: new IconThemeData(color: Colors.red),
+            expandedHeight: 300,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                loadedProduct.title,
+                textAlign: TextAlign.left,
+                style: TextStyle(color: Colors.red),
               ),
-              onPressed: () {
-                Navigator.of(context).pushNamed(CartScreen.routeName);
-              },
-            ),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              height: 200,
-              width: double.infinity,
-              child: Hero(
+              background: Hero(
                 tag: loadedProduct.id,
                 child: Image.network(
                   loadedProduct.imageUrl,
@@ -57,20 +63,30 @@ class ProductDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            Text('\$${loadedProduct.price}'),
-            SizedBox(height: 10),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              width: double.infinity,
-              child: Text(
-                loadedProduct.description,
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              SizedBox(height: 10),
+              Text(
+                '\$${loadedProduct.price}',
                 textAlign: TextAlign.center,
-                softWrap: true,
               ),
-            )
-          ],
-        ),
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                width: double.infinity,
+                child: Text(
+                  loadedProduct.description,
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                ),
+              ),
+              SizedBox(
+                height: 800,
+              )
+            ]),
+          ),
+        ],
       ),
     );
   }

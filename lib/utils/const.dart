@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/helpers/custom_route.dart';
 
 class Constants {
   static String appName = "Shop App";
@@ -17,6 +18,12 @@ class Constants {
     primaryColor: lightPrimary,
     accentColor: lightAccent,
     cursorColor: lightAccent,
+    pageTransitionsTheme: PageTransitionsTheme(
+      builders: {
+        TargetPlatform.android: CustomPageTransitionBuilder(),
+        TargetPlatform.iOS: CustomPageTransitionBuilder(),
+      },
+    ),
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       elevation: 0,
@@ -35,6 +42,12 @@ class Constants {
     backgroundColor: darkBG,
     primaryColor: darkPrimary,
     accentColor: darkAccent,
+    pageTransitionsTheme: PageTransitionsTheme(
+      builders: {
+        TargetPlatform.android: CustomPageTransitionBuilder(),
+        TargetPlatform.iOS: CustomPageTransitionBuilder(),
+      },
+    ),
     scaffoldBackgroundColor: darkBG,
     cursorColor: darkAccent,
     appBarTheme: AppBarTheme(
