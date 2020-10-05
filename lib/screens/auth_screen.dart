@@ -144,6 +144,7 @@ class _AuthCardState extends State<AuthCard>
         );
       }
     } on HttpException catch (error) {
+      print(error);
       var errorMessage = 'Authenticate failed';
       if (error.toString().contains('EMAIL_EXISTS')) {
         errorMessage = 'This email address already in use';
