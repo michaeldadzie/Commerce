@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/providers/orders.dart' show Orders;
 import 'package:shop_app/widgets/app_drawer.dart';
@@ -15,9 +16,9 @@ class OrdersScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Your Orders',
-          style: TextStyle(color: Colors.red),
+          style: GoogleFonts.raleway(color: Theme.of(context).accentColor),
         ),
-        iconTheme: new IconThemeData(color: Colors.red),
+        iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
       ),
       drawer: AppDrawer(),
       body: FutureBuilder(
@@ -26,7 +27,7 @@ class OrdersScreen extends StatelessWidget {
           if (dataSnapshot.connectionState == ConnectionState.waiting) {
             return Center(
                 child: CircularProgressIndicator(
-              backgroundColor: Colors.red,
+              backgroundColor: Theme.of(context).primaryColor,
             ));
           } else {
             if (dataSnapshot.error != null) {
