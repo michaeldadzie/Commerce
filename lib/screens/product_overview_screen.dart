@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/providers/products.dart';
@@ -54,22 +53,21 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
-        iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
+        iconTheme: new IconThemeData(color: Colors.red),
         title: Text(
-          '',
-          style: GoogleFonts.raleway(color: Colors.red),
+          'Soulll Shop',
+          style: TextStyle(color: Colors.red),
         ),
         actions: [
           Consumer<Cart>(
             builder: (_, cart, ch) => Badge(
               child: ch,
               value: cart.itemCount.toString(),
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.red,
             ),
             child: IconButton(
               icon: Icon(
-                Icons.shopping_bag_outlined,
-                color: Theme.of(context).accentColor,
+                Icons.shopping_cart,
               ),
               onPressed: () {
                 Navigator.of(context).pushNamed(CartScreen.routeName);
@@ -86,7 +84,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                 }
               });
             },
-            icon: Icon(Icons.favorite),
+            icon: Icon(Icons.more_vert),
             itemBuilder: (_) => [
               PopupMenuItem(
                   child: Text('Only Favorites'),
@@ -103,7 +101,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Colors.red,
               ),
             )
           : ProductsGrid(_showOnlyFavorites),
