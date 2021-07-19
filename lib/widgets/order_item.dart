@@ -47,13 +47,14 @@ class _OrderItemState extends State<OrderItem> {
               child: ListView(
                   children: widget.order.products
                       .map(
-                        (prod) => Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        (prod) => Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               prod.title,
                               style: GoogleFonts.raleway(fontSize: 18),
                             ),
+                            SizedBox(height: 5),
                             Text(
                               '${prod.quantity}x \$${prod.price}',
                               style: GoogleFonts.raleway(
