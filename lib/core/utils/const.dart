@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/helpers/custom_route.dart';
+import 'file:///D:/AndroidStudioProjects/shop_app/lib/core/route/custom_route.dart';
 
 class Constants {
   static String appName = "Shop App";

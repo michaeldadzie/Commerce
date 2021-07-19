@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/providers/orders.dart' show Orders;
-import 'package:shop_app/widgets/app_drawer.dart';
-import 'package:shop_app/widgets/order_item.dart';
+import 'package:shop_app/core/widgets/app_drawer.dart';
+import 'package:shop_app/features/orders/presentation/providers/orders.dart'
+    show Orders;
+import 'package:shop_app/features/orders/presentation/widgets/order_item.dart';
 
 class OrdersScreen extends StatelessWidget {
   static const routeName = '/orders';

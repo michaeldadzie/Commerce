@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/providers/auth.dart';
-import 'package:shop_app/providers/cart.dart';
-import 'package:shop_app/providers/orders.dart';
-import 'package:shop_app/screens/cart_screen.dart';
-import 'package:shop_app/screens/edit_product_screen.dart';
-import 'package:shop_app/screens/orders_screen.dart';
-import 'package:shop_app/screens/splash_screen.dart';
-import 'package:shop_app/screens/user_products_screen.dart';
-import 'screens/product_overview_screen.dart';
-import 'screens/product_detail_screen.dart';
-import 'providers/products.dart';
-import 'package:shop_app/screens/auth_screen.dart';
-import 'utils/const.dart';
+import 'package:shop_app/core/widgets/bottom_nav.dart';
+import 'features/orders/presentation/pages/orders_screen.dart';
+import 'features/user_authentication/presentation/pages/auth_screen.dart';
+import 'features/user_authentication/presentation/providers/auth.dart';
+import 'features/home/presentation/providers/cart.dart';
+import 'features/orders/presentation/providers/orders.dart';
+import 'features/home/presentation/pages/cart_screen.dart';
+import 'features/account/presentation/pages/edit_product_screen.dart';
+import 'core/splashscreen/splash_screen.dart';
+import 'features/account/presentation/pages/user_products_screen.dart';
+import 'features/home/presentation/pages/product_detail_screen.dart';
+import 'features/home/presentation/providers/products.dart';
+import 'core/utils/const.dart';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
           theme: Constants.lightTheme,
           darkTheme: Constants.darkTheme,
           home: auth.isAuth
-              ? ProductsOverviewScreen()
+              ? BottomNavBar()
               : FutureBuilder(
                   future: auth.tryAutoLogin(),
                   builder: (ctx, authResultSnapshot) =>

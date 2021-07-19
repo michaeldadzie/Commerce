@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/providers/auth.dart';
-import 'package:shop_app/providers/cart.dart';
-import 'package:shop_app/providers/product.dart';
-import 'package:shop_app/screens/product_detail_screen.dart';
+import 'package:shop_app/features/user_authentication/presentation/providers/auth.dart';
+import 'package:shop_app/features/home/presentation/providers/cart.dart';
+import 'package:shop_app/features/home/presentation/providers/product.dart';
+import 'package:shop_app/features/home/presentation/pages/product_detail_screen.dart';
 
 class ProductItem extends StatelessWidget {
 //  final String id;

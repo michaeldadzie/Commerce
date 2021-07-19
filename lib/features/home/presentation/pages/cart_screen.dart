@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_app/providers/cart.dart' show Cart;
-import 'package:shop_app/providers/orders.dart';
-import 'package:shop_app/widgets/cart_item.dart';
+import 'package:shop_app/features/home/presentation/providers/cart.dart'
+    show Cart;
+import 'package:shop_app/features/orders/presentation/providers/orders.dart';
+import 'package:shop_app/features/home/presentation/widgets/cart_item.dart';
 
 class CartScreen extends StatelessWidget {
   static const routeName = '/cart';

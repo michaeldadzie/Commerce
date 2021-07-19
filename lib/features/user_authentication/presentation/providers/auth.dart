@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
-import 'package:shop_app/models/http_exception.dart';
+import 'package:shop_app/core/exception/http_exception.dart';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -110,11 +110,11 @@ class Auth with ChangeNotifier {
     prefs.clear();
   }
 
-  // void _autoLogout() {
-  //   if (_authTimer != null) {
-  //     _authTimer.cancel();
-  //   }
-  //   final timeToExpiry = _expiryDate.difference(DateTime.now()).inSeconds;
-  //   _authTimer = Timer(Duration(seconds: timeToExpiry), logout);
-  // }
+// void _autoLogout() {
+//   if (_authTimer != null) {
+//     _authTimer.cancel();
+//   }
+//   final timeToExpiry = _expiryDate.difference(DateTime.now()).inSeconds;
+//   _authTimer = Timer(Duration(seconds: timeToExpiry), logout);
+// }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/models/http_exception.dart';
+import 'package:shop_app/core/exception/http_exception.dart';
 import 'product.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

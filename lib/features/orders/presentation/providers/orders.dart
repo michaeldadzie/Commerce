@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:shop_app/providers/cart.dart';
+import 'package:shop_app/features/home/presentation/providers/cart.dart';
 import 'package:http/http.dart' as http;
 
 class OrderItem {
