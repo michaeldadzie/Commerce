@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1019421778402",
+    "firebase_url": "https://soulllshop.firebaseio.com",
+    "project_id": "soulllshop",
+    "storage_bucket": "soulllshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019421778402:android:c9ca30eac6e491d39499bb",
+        "android_client_info": {
+          "package_name": "com.soulll.shop_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019421778402-7f0q8qlcl5jc75fpl7jp4fcgta6o83gd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkUXrFNeyKGlqgbGGkvoSk8yGQptwfLY8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019421778402-7f0q8qlcl5jc75fpl7jp4fcgta6o83gd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
