@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shop_app/core/utils/screen_sizes.dart';
+import 'package:shop_app/features/account/presentation/pages/account_screen.dart';
 import 'package:shop_app/features/orders/presentation/pages/orders_screen.dart';
 import 'package:shop_app/features/home/presentation/pages/product_overview_screen.dart';
 
@@ -18,7 +21,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     _pages = [
       {'page': ProductsOverviewScreen()},
       {'page': OrdersScreen()},
-      {'page': Container()} //TODO: Replace with Account Screen
+      {'page': AccountScreen()},
     ];
     super.initState();
   }
@@ -31,6 +34,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(
+      context,
+      designSize: Size(
+        MyScreenSizes.screenWidth,
+        MyScreenSizes.screenHeight,
+      ),
+      allowFontScaling: true,
+    );
     return Scaffold(
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: Theme(
@@ -40,13 +51,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
         child: BottomNavigationBar(
           onTap: _selectPage,
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).primaryColor,
           unselectedItemColor: Color.fromRGBO(161, 172, 189, 1),
           selectedItemColor: Colors.red,
           currentIndex: _selectedPageIndex,
-          showSelectedLabels: true,
-          showUnselectedLabels: true,
-          iconSize: 20,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          iconSize: 25,
           selectedLabelStyle: GoogleFonts.raleway(
             fontSize: 13,
             fontWeight: FontWeight.w700,
@@ -60,16 +71,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
           items: [
             BottomNavigationBarItem(
                 backgroundColor: Colors.white,
-                icon: Icon(Icons.home),
-                label: 'Dashboard'),
+                icon: Icon(Icons.home_filled),
+                label: ''),
             BottomNavigationBarItem(
                 backgroundColor: Colors.white,
                 icon: Icon(Icons.shopping_cart),
-                label: 'Orders'),
+                label: ''),
             BottomNavigationBarItem(
                 backgroundColor: Colors.white,
                 icon: Icon(Icons.person),
-                label: 'Account'),
+                label: ''),
           ],
         ),
       ),
