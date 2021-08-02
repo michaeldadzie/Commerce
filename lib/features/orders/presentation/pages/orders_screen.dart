@@ -16,10 +16,10 @@ class OrdersScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Your Orders',
-          style: GoogleFonts.raleway(color: Theme.of(context).accentColor),
+          'My Orders',
+          style: GoogleFonts.raleway(color: Colors.red),
         ),
-        iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
+        iconTheme: IconThemeData(color: Colors.red),
       ),
       drawer: AppDrawer(),
       body: FutureBuilder(
@@ -27,13 +27,13 @@ class OrdersScreen extends StatelessWidget {
         builder: (ctx, dataSnapshot) {
           if (dataSnapshot.connectionState == ConnectionState.waiting) {
             return Center(
-                child: CircularProgressIndicator(
-              backgroundColor: Theme.of(context).primaryColor,
-            ));
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.red,
+              ),
+            );
           } else {
             if (dataSnapshot.error != null) {
-              // ...
-              // Do error handling stuff
+              //TODO: error handling stuff
               return Center(
                 child: Text('An error occurred!'),
               );
