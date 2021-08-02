@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/core/utils/screen_sizes.dart';
 import 'package:shop_app/features/home/presentation/providers/cart.dart';
 import 'package:shop_app/features/home/presentation/providers/products.dart';
 import 'package:shop_app/features/home/presentation/pages/cart_screen.dart';
@@ -49,14 +52,23 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // final node = FocusScope.of(context);
+    ScreenUtil.init(
+      context,
+      designSize: Size(
+        MyScreenSizes.screenWidth,
+        MyScreenSizes.screenHeight,
+      ),
+      allowFontScaling: true,
+    );
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
-        iconTheme: new IconThemeData(color: Colors.red),
+        iconTheme: IconThemeData(color: Colors.red),
         title: Text(
           'Soulll Shop',
-          style: TextStyle(color: Colors.red),
+          style: GoogleFonts.raleway(color: Colors.red),
         ),
         actions: [
           Consumer<Cart>(
