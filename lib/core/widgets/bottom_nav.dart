@@ -75,7 +75,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 label: ''),
             BottomNavigationBarItem(
                 backgroundColor: Colors.white,
-                icon: Icon(Icons.shopping_cart),
+                icon: Icon(Icons.bookmark_border),
                 label: ''),
             BottomNavigationBarItem(
                 backgroundColor: Colors.white,
