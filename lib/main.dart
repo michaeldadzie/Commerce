@@ -12,7 +12,7 @@ import 'core/splashscreen/splash_screen.dart';
 import 'features/account/presentation/pages/user_products_screen.dart';
 import 'features/home/presentation/pages/product_detail_screen.dart';
 import 'features/home/presentation/providers/products.dart';
-import 'core/utils/const.dart';
+import 'core/utils/theme.dart';
 import 'package:flutter/services.dart';
 
 void main() {
