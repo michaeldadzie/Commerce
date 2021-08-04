@@ -8,7 +8,6 @@ import 'package:shop_app/features/orders/presentation/widgets/order_item.dart';
 
 class OrdersScreen extends StatelessWidget {
   static const routeName = '/orders';
-
   @override
   Widget build(BuildContext context) {
     print('building orders');
@@ -19,8 +18,18 @@ class OrdersScreen extends StatelessWidget {
           'My Orders',
           style: GoogleFonts.raleway(color: Colors.red),
         ),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            icon: menuButton,
+            onPressed: () => scaffoldKey.currentState.openDrawer(),
+          ),
+        ),
         iconTheme: IconThemeData(color: Colors.red),
       ),
+      key: scaffoldKey,
       drawer: AppDrawer(),
       body: FutureBuilder(
         future: Provider.of<Orders>(context, listen: false).fetchAndSetOrders(),
@@ -50,4 +59,19 @@ class OrdersScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+var scaffoldKey = GlobalKey<ScaffoldState>();
+Widget get menuButton {
+  return Container(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(height: 3, width: 24, color: Colors.red),
+        SizedBox(height: 3),
+        Container(height: 3, width: 12, color: Colors.red),
+      ],
+    ),
+  );
 }
