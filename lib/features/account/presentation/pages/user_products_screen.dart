@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:shop_app/features/home/presentation/providers/products.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/features/account/presentation/pages/edit_product_screen.dart';
@@ -19,21 +20,23 @@ class UserProductsScreen extends StatelessWidget {
     print('rebuilding...');
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Your Products',
-          style: TextStyle(color: Colors.red),
+          style: GoogleFonts.raleway(color: Colors.red),
         ),
         iconTheme: new IconThemeData(color: Colors.red),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.add),
+            icon: const Icon(
+              Icons.add_shopping_cart_sharp,
+            ),
             onPressed: () {
               Navigator.of(context).pushNamed(EditProductScreen.routeName);
             },
           ),
         ],
       ),
-      drawer: AppDrawer(),
+      // drawer: AppDrawer(),
       body: FutureBuilder(
         future: _refreshProducts(context),
         builder: (ctx, snapshot) =>
