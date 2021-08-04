@@ -18,12 +18,16 @@ class Constants {
     primaryColor: lightPrimary,
     accentColor: lightAccent,
     cursorColor: lightAccent,
-    pageTransitionsTheme: PageTransitionsTheme(
-      builders: {
-        TargetPlatform.android: CustomPageTransitionBuilder(),
-        TargetPlatform.iOS: CustomPageTransitionBuilder(),
-      },
-    ),
+    // pageTransitionsTheme: PageTransitionsTheme(
+    //   builders: {
+    //     TargetPlatform.android: CustomPageTransitionBuilder(),
+    //     TargetPlatform.iOS: CustomPageTransitionBuilder(),
+    //   },
+    // ),
+    pageTransitionsTheme: PageTransitionsTheme(builders: {
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+    }),
     scaffoldBackgroundColor: lightBG,
     appBarTheme: AppBarTheme(
       elevation: 0,
@@ -42,12 +46,16 @@ class Constants {
     backgroundColor: darkBG,
     primaryColor: darkPrimary,
     accentColor: darkAccent,
-    pageTransitionsTheme: PageTransitionsTheme(
-      builders: {
-        TargetPlatform.android: CustomPageTransitionBuilder(),
-        TargetPlatform.iOS: CustomPageTransitionBuilder(),
-      },
-    ),
+    // pageTransitionsTheme: PageTransitionsTheme(
+    //   builders: {
+    //     TargetPlatform.android: CustomPageTransitionBuilder(),
+    //     TargetPlatform.iOS: CustomPageTransitionBuilder(),
+    //   },
+    // ),
+    pageTransitionsTheme: PageTransitionsTheme(builders: {
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+    }),
     scaffoldBackgroundColor: darkBG,
     cursorColor: darkAccent,
     appBarTheme: AppBarTheme(
