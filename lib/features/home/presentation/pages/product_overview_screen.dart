@@ -24,6 +24,21 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   var _showOnlyFavorites = false;
   var _isInit = true;
   var _isLoading = false;
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+  Widget get menuButton {
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(height: 3, width: 24, color: Colors.red),
+          SizedBox(height: 3),
+          Container(height: 3, width: 12, color: Colors.red),
+        ],
+      ),
+    );
+  }
+
   @override
   void initState() {
 //    Provider.of<Products>(context).fetchAndSetProducts();
@@ -65,6 +80,15 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            icon: menuButton,
+            onPressed: () => scaffoldKey.currentState.openDrawer(),
+          ),
+        ),
         iconTheme: IconThemeData(color: Colors.red),
         title: Text(
           'Soulll Shop',
@@ -109,6 +133,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
           ),
         ],
       ),
+      key: scaffoldKey,
       drawer: AppDrawer(),
       body: _isLoading
           ? Center(
