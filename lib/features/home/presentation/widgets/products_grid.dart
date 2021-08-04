@@ -23,19 +23,21 @@ class ProductsGrid extends StatelessWidget {
 //          products[i].imageUrl,
             ),
       ),
-      gridDelegate: Platform.isWindows
-          ? SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-              childAspectRatio: 2 / 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-            )
-          : SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1.6 / 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-            ),
+      gridDelegate:
+          // Platform.isWindows
+          //     ? SliverGridDelegateWithFixedCrossAxisCount(
+          //         crossAxisCount: 4,
+          //         childAspectRatio: 2 / 2,
+          //         crossAxisSpacing: 10,
+          //         mainAxisSpacing: 10,
+          //       )
+          //     :
+          SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 1.6 / 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
     );
   }
 }
