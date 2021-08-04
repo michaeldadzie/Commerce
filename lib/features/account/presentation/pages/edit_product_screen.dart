@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/features/home/presentation/providers/product.dart';
 import 'package:shop_app/features/home/presentation/providers/products.dart';
@@ -137,7 +138,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         iconTheme: new IconThemeData(color: Colors.red),
-        title: Text('Edit Product', style: TextStyle(color: Colors.red)),
+        title:
+            Text('Edit Product', style: GoogleFonts.raleway(color: Colors.red)),
         actions: [
           IconButton(
             icon: Icon(Icons.save),
