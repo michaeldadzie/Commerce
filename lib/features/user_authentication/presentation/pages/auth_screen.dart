@@ -27,15 +27,16 @@ class AuthScreen extends StatelessWidget {
       // resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Stack(
-          children: <Widget>[
+          children: [
             SingleChildScrollView(
+              physics: NeverScrollableScrollPhysics(),
               child: Container(
                 height: deviceSize.height,
                 width: deviceSize.width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
+                  children: [
                     Flexible(
                       flex: deviceSize.width > 600 ? 2 : 1,
                       child: AuthCard(),
