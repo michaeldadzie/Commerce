@@ -22,16 +22,21 @@ class IntroContent extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        Text(
-          text,
-          style: GoogleFonts.raleway(),
-          textAlign: TextAlign.center,
-        ),
         Spacer(flex: 2),
         Image.asset(
           image,
           height: getProportionateScreenHeight(265),
           width: getProportionateScreenWidth(235),
+        ),
+        Spacer(flex: 2),
+        Container(
+          child: Text(
+            text,
+            style: GoogleFonts.raleway(
+                fontSize: getProportionateScreenWidth(19),
+                fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );
