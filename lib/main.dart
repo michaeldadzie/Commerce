@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/core/splashscreen/intro.dart';
+import 'package:shop_app/core/splashscreen/splash_screen.dart';
 import 'package:shop_app/core/widgets/bottom_nav.dart';
 import 'features/orders/presentation/pages/orders_screen.dart';
 import 'features/user_authentication/presentation/pages/auth_screen.dart';
@@ -8,7 +10,7 @@ import 'features/home/presentation/providers/cart.dart';
 import 'features/orders/presentation/providers/orders.dart';
 import 'features/home/presentation/pages/cart_screen.dart';
 import 'features/account/presentation/pages/edit_product_screen.dart';
-import 'core/splashscreen/splash_screen.dart';
+import 'core/splashscreen/onboarding_screen.dart';
 import 'features/account/presentation/pages/user_products_screen.dart';
 import 'features/home/presentation/pages/product_detail_screen.dart';
 import 'features/home/presentation/providers/products.dart';
@@ -65,9 +67,10 @@ class MyApp extends StatelessWidget {
                       authResultSnapshot.connectionState ==
                               ConnectionState.waiting
                           ? SplashScreen()
-                          : AuthScreen(),
+                          : OnboardScreen(),
                 ),
           routes: {
+            AuthScreen.routeName: (ctx) => AuthScreen(),
             ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
             CartScreen.routeName: (ctx) => CartScreen(),
             OrdersScreen.routeName: (ctx) => OrdersScreen(),
