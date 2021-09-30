@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/core/splashscreen/intro_content.dart';
 import 'package:shop_app/core/widgets/custom_button.dart';
@@ -12,7 +13,7 @@ class _IntroState extends State<Intro> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Welcome to the Qfood checker App",
+      "text": "Start your soulll shop journey now",
       "image": "assets/images/product-loading.gif"
     },
     {
@@ -43,7 +44,7 @@ class _IntroState extends State<Intro> {
                     parent: AlwaysScrollableScrollPhysics()),
                 itemCount: splashData.length,
                 itemBuilder: (context, index) => IntroContent(
-                  image: splashData[index]["image"],
+                  image: splashData[index]['image'],
                   text: splashData[index]['text'],
                 ),
               ),
@@ -70,8 +71,14 @@ class _IntroState extends State<Intro> {
                       backgroundColor: Colors.red,
                       textColor: Colors.white,
                       onPress: () {
-                        Navigator.of(context).pushNamed(
-                          AuthScreen.routeName,
+                        // Navigator.of(context).pushReplacementNamed(
+                        //     AuthScreen.routeName,
+                        //     arguments: AuthMode);
+                        Navigator.pushReplacement(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => AuthScreen(),
+                          ),
                         );
                       },
                     ),
