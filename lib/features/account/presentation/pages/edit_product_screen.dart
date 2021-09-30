@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/features/home/presentation/providers/product.dart';
 import 'package:shop_app/features/home/presentation/providers/products.dart';
+import 'package:shop_app/features/user_authentication/presentation/constants/const.dart';
 
 class EditProductScreen extends StatefulWidget {
   static const routeName = '/edit-product';
@@ -159,7 +160,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
                   children: [
                     TextFormField(
                       initialValue: _initValues['title'],
-                      decoration: InputDecoration(labelText: 'Title'),
+                      decoration:
+                          textFormFieldDecoration.copyWith(hintText: 'Title'),
                       textInputAction: TextInputAction.next,
                       onFieldSubmitted: (_) {
                         FocusScope.of(context).requestFocus(_priceFocusNode);
@@ -181,9 +183,11 @@ class _EditProductScreenState extends State<EditProductScreen> {
                         );
                       },
                     ),
+                    SizedBox(height: 15),
                     TextFormField(
                       initialValue: _initValues['price'],
-                      decoration: InputDecoration(labelText: 'Price'),
+                      decoration:
+                          textFormFieldDecoration.copyWith(hintText: 'Price'),
                       textInputAction: TextInputAction.next,
                       keyboardType: TextInputType.number,
                       focusNode: _priceFocusNode,
@@ -214,9 +218,11 @@ class _EditProductScreenState extends State<EditProductScreen> {
                         );
                       },
                     ),
+                    SizedBox(height: 15),
                     TextFormField(
                       initialValue: _initValues['description'],
-                      decoration: InputDecoration(labelText: 'Description'),
+                      decoration: textFormFieldDecoration.copyWith(
+                          hintText: 'Description'),
                       maxLines: 3,
                       keyboardType: TextInputType.multiline,
                       focusNode: _descriptionFocusNode,
@@ -240,28 +246,34 @@ class _EditProductScreenState extends State<EditProductScreen> {
                         );
                       },
                     ),
+                    SizedBox(height: 15),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                          margin: EdgeInsets.only(top: 8, right: 10),
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.grey),
-                          ),
-                          child: _imageUrlController.text.isEmpty
-                              ? Text('Enter Url')
-                              : FittedBox(
-                                  child: Image.network(
-                                    _imageUrlController.text,
-                                    fit: BoxFit.cover,
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            color: Colors.grey[100],
+                            // decoration: BoxDecoration(
+                            //   border: Border.all(width: 1, color: Colors.grey),
+                            // ),
+                            child: _imageUrlController.text.isEmpty
+                                ? Text('') //TODO: Imageplace holder
+                                : FittedBox(
+                                    child: Image.network(
+                                      _imageUrlController.text,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
+                          ),
                         ),
+                        SizedBox(width: 10),
                         Expanded(
                           child: TextFormField(
-                            decoration: InputDecoration(labelText: 'Image URL'),
+                            decoration: textFormFieldDecoration.copyWith(
+                                hintText: 'Image Url'),
                             keyboardType: TextInputType.url,
                             textInputAction: TextInputAction.done,
                             controller: _imageUrlController,
