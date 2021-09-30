@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/core/exception/http_exception.dart';
+import 'package:shop_app/features/user_authentication/presentation/constants/const.dart';
 import 'package:shop_app/features/user_authentication/presentation/pages/auth_screen.dart';
 import 'package:shop_app/features/user_authentication/presentation/providers/auth.dart';
 
@@ -153,7 +155,7 @@ class _AuthCardState extends State<AuthCard>
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      elevation: 8.0,
+      elevation: 3,
       child: AnimatedBuilder(
         animation: _heighAnimation,
         builder: (ctx, ch) => Container(
@@ -168,10 +170,14 @@ class _AuthCardState extends State<AuthCard>
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
+            // physics: NeverScrollableScrollPhysics(),
+            physics:
+                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             child: Column(
               children: <Widget>[
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'E-Mail'),
+                  decoration:
+                      textFormFieldDecoration.copyWith(hintText: 'Email'),
                   keyboardType: TextInputType.emailAddress,
                   // ignore: missing_return
                   validator: (value) {
@@ -183,8 +189,10 @@ class _AuthCardState extends State<AuthCard>
                     _authData['email'] = value;
                   },
                 ),
+                SizedBox(height: 8),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Password'),
+                  decoration:
+                      textFormFieldDecoration.copyWith(hintText: 'Password'),
                   obscureText: true,
                   controller: _passwordController,
                   // ignore: missing_return
@@ -197,6 +205,7 @@ class _AuthCardState extends State<AuthCard>
                     _authData['password'] = value;
                   },
                 ),
+                SizedBox(height: 8),
                 // if (_authMode == AuthMode.Signup)
                 AnimatedContainer(
                   constraints: BoxConstraints(
@@ -211,8 +220,8 @@ class _AuthCardState extends State<AuthCard>
                       position: _slideAnimation,
                       child: TextFormField(
                         enabled: _authMode == AuthMode.Signup,
-                        decoration:
-                            InputDecoration(labelText: 'Confirm Password'),
+                        decoration: textFormFieldDecoration.copyWith(
+                            hintText: 'Confirm Password'),
                         obscureText: true,
                         validator: _authMode == AuthMode.Signup
                             // ignore: missing_return
@@ -235,24 +244,36 @@ class _AuthCardState extends State<AuthCard>
                   )
                 else
                   RaisedButton(
-                    child:
-                        Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
+                    child: Text(
+                      _authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP',
+                      style: GoogleFonts.raleway(
+                          color: Theme.of(context).accentColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400),
+                    ),
                     onPressed: _submit,
+                    highlightColor: Colors.transparent,
+                    splashColor: Colors.transparent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                     padding:
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
                     color: Colors.red,
-                    textColor: Theme.of(context).primaryTextTheme.button.color,
                   ),
                 FlatButton(
                   child: Text(
-                      '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'}'),
+                    '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'}',
+                    style: GoogleFonts.raleway(
+                        color: Theme.of(context).accentColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
+                  ),
                   onPressed: _switchAuthMode,
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
                   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  textColor: Theme.of(context).accentColor,
                 ),
               ],
             ),
