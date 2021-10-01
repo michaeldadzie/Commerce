@@ -15,9 +15,9 @@ class CartScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Your cart',
-          style: TextStyle(color: Colors.red),
+          style: GoogleFonts.raleway(color: Colors.red),
         ),
-        iconTheme: new IconThemeData(color: Colors.red),
+        iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
       ),
@@ -34,13 +34,13 @@ class CartScreen extends StatelessWidget {
                   Spacer(),
                   Chip(
                     label: Text(
-                      '\$${cart.totalAmount.toStringAsFixed(2)}',
-                      style: GoogleFonts.raleway(
+                      '\GH¢ ${cart.totalAmount.toStringAsFixed(2)}',
+                      style: GoogleFonts.lato(
                           color: Theme.of(context).primaryColor),
                     ),
                     backgroundColor: Theme.of(context).accentColor,
                   ),
-                  OrderButton(cart: cart),
+                  OrderButton(cart: cart), //TODO: Change order button
                 ],
               ),
             ),
