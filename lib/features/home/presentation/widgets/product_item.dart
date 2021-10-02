@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/features/user_authentication/presentation/providers/auth.dart';
-import 'package:shop_app/features/home/presentation/providers/cart.dart';
 import 'package:shop_app/features/home/presentation/providers/product.dart';
 import 'package:shop_app/features/home/presentation/pages/product_detail_screen.dart';
 
@@ -16,7 +14,6 @@ class ProductItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
-    final cart = Provider.of<Cart>(context, listen: false);
     final authData = Provider.of<Auth>(context, listen: false);
     return GestureDetector(
       onTap: () {
@@ -24,13 +21,6 @@ class ProductItem extends StatelessWidget {
           ProductDetailScreen.routeName,
           arguments: product.id,
         );
-        // Navigator.push(
-        //   context,
-        //   PageTransition(
-        //     type: PageTransitionType.rightToLeft,
-        //     child: ProductDetailScreen(),
-        //   ),
-        // );
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
@@ -94,11 +84,11 @@ class ProductItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 2),
               child: Text(
-                '\$${product.price.toString()}',
+                '\GH¢ ${product.price.toString()}',
                 style: GoogleFonts.lato(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
-                    color: Colors.grey),
+                    color: Colors.grey[500]),
                 textAlign: TextAlign.left,
               ),
             ),
