@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'file:///D:/AndroidStudioProjects/shop_app/lib/features/home/presentation/providers/cart.dart';
+import 'package:shop_app/features/home/presentation/providers/cart.dart';
 
 class CartItem extends StatelessWidget {
   final String id;
