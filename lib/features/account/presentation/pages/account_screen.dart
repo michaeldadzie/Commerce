@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_app/core/widgets/app_drawer.dart';
 import 'package:shop_app/features/account/presentation/pages/user_products_screen.dart';
 import 'package:shop_app/features/account/presentation/widgets/custom_list_tile.dart';
 import 'package:shop_app/features/account/presentation/widgets/user_product_item.dart';
+import 'package:shop_app/features/user_authentication/presentation/pages/auth_screen.dart';
+import 'package:shop_app/features/user_authentication/presentation/providers/auth.dart';
 
 class AccountScreen extends StatelessWidget {
   @override
@@ -15,19 +18,19 @@ class AccountScreen extends StatelessWidget {
           'My Account',
           style: GoogleFonts.raleway(color: Colors.red),
         ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: IconButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            icon: menuButton,
-            onPressed: () => scaffoldKey.currentState.openDrawer(),
-          ),
-        ),
+        // leading: Padding(
+        //   padding: const EdgeInsets.only(left: 10),
+        //   child: IconButton(
+        //     splashColor: Colors.transparent,
+        //     highlightColor: Colors.transparent,
+        //     icon: menuButton,
+        //     onPressed: () => scaffoldKey.currentState.openDrawer(),
+        //   ),
+        // ),
         iconTheme: IconThemeData(color: Colors.red),
       ),
       key: scaffoldKey,
-      drawer: AppDrawer(),
+      // drawer: AppDrawer(),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(20),
@@ -118,6 +121,31 @@ class AccountScreen extends StatelessWidget {
                 },
                 name: 'Help',
                 icon: Icons.help_outline,
+              ),
+              SizedBox(height: 25),
+              CustomListTile(
+                tap: () {
+                  // Navigator.push(
+                  //   context,
+                  //   CupertinoPageRoute(
+                  //     builder: (context) => HelpScreen(),
+                  //   ),
+                  // );
+                },
+                name: 'Privacy Policy',
+                icon: Icons.privacy_tip_outlined,
+              ),
+              SizedBox(height: 25),
+              CustomListTile(
+                tap: () {
+                  // Navigator.of(context).pop();
+                  // Navigator.of(context).pushReplacementNamed('/');
+                  Navigator.of(context)
+                      .pushReplacementNamed(AuthScreen.routeName);
+                  Provider.of<Auth>(context, listen: false).logout();
+                },
+                name: 'Log Out',
+                icon: Icons.logout,
               ),
             ],
           ),
