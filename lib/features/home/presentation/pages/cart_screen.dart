@@ -34,7 +34,7 @@ class CartScreen extends StatelessWidget {
                   Spacer(),
                   Chip(
                     label: Text(
-                      '\GH¢ ${cart.totalAmount.toStringAsFixed(2)}',
+                      '\GH¢${cart.totalAmount.toStringAsFixed(2)}',
                       style: GoogleFonts.lato(
                           color: Theme.of(context).primaryColor),
                     ),
