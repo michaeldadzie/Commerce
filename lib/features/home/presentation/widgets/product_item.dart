@@ -84,7 +84,7 @@ class ProductItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 2),
               child: Text(
-                '\GH¢ ${product.price.toString()}',
+                '\GH¢${product.price.toString()}',
                 style: GoogleFonts.lato(
                     fontSize: 13,
                     fontWeight: FontWeight.w400,
