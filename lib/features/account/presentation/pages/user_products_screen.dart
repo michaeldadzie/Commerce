@@ -27,6 +27,8 @@ class UserProductsScreen extends StatelessWidget {
         iconTheme: new IconThemeData(color: Colors.red),
         actions: <Widget>[
           IconButton(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             icon: const Icon(
               Icons.add_shopping_cart_sharp,
             ),
