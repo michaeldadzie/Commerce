@@ -96,7 +96,7 @@ class ProductDetailScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10.h),
                   Text(
-                    '\GH¢ ${loadedProduct.price.toString()}',
+                    '\GH¢${loadedProduct.price.toString()}',
                     style: GoogleFonts.lato(
                       color: Colors.grey[500],
                       fontSize: 20,
@@ -107,7 +107,8 @@ class ProductDetailScreen extends StatelessWidget {
                     loadedProduct.description,
                     style: GoogleFonts.raleway(
                         fontSize: 18, color: Theme.of(context).accentColor),
-                  )
+                  ),
+                  SizedBox(height: 10.h),
                 ],
               ),
             ),
@@ -142,11 +143,11 @@ class ProductDetailScreen extends StatelessWidget {
                         // ));
                         Scaffold.of(context).showSnackBar(
                           SnackBar(
-                            backgroundColor: Colors.black,
+                            backgroundColor: Theme.of(context).primaryColor,
                             content: Text(
                               'Added Item to Cart',
                               style: GoogleFonts.raleway(
-                                  color: Theme.of(context).primaryColor),
+                                  color: Theme.of(context).accentColor),
                             ),
                             action: SnackBarAction(
                               label: 'UNDO',
