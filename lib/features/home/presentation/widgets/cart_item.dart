@@ -36,16 +36,29 @@ class CartItem extends StatelessWidget {
         return showDialog(
             context: context,
             builder: (ctx) => AlertDialog(
-                  title: Text('Are you sure?'),
-                  content: Text('Do you want to remove item from the cart?'),
+                  title: Text(
+                    'Are you sure?',
+                    style: GoogleFonts.raleway(
+                        fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
+                  content: Text(
+                    'Do you want to remove item from the cart?',
+                    style: GoogleFonts.raleway(),
+                  ),
                   actions: [
                     FlatButton(
-                        child: Text('No'),
+                        child: Text(
+                          'No',
+                          style: GoogleFonts.raleway(),
+                        ),
                         onPressed: () {
                           Navigator.of(ctx).pop(false);
                         }),
                     FlatButton(
-                        child: Text('Yes'),
+                        child: Text(
+                          'Yes',
+                          style: GoogleFonts.raleway(),
+                        ),
                         onPressed: () {
                           Navigator.of(ctx).pop(true);
                         })
@@ -70,8 +83,9 @@ class CartItem extends StatelessWidget {
                 padding: EdgeInsets.all(5),
                 child: FittedBox(
                   child: Text(
-                    '\$$price',
-                    style: GoogleFonts.raleway(color: Colors.black),
+                    '\GH¢$price',
+                    style: GoogleFonts.lato(
+                        color: Theme.of(context).accentColor, fontSize: 15),
                   ),
                 ),
               ),
@@ -82,10 +96,13 @@ class CartItem extends StatelessWidget {
                   fontWeight: FontWeight.bold, fontSize: 15),
             ),
             subtitle: Text(
-              'Total: \$${(price * quantity)}',
-              style: GoogleFonts.raleway(fontSize: 15),
+              'Total: \GH¢${(price * quantity)}',
+              style: GoogleFonts.lato(fontSize: 15),
             ),
-            trailing: Text('$quantity x'),
+            trailing: Text(
+              '$quantity x',
+              style: GoogleFonts.lato(),
+            ),
           ),
         ),
       ),
