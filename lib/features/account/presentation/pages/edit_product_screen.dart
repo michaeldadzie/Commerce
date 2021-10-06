@@ -143,6 +143,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
             Text('Edit Product', style: GoogleFonts.raleway(color: Colors.red)),
         actions: [
           IconButton(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
             icon: Icon(Icons.save),
             onPressed: _saveForm,
           )
