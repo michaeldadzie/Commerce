@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -72,14 +73,23 @@ class _AuthCardState extends State<AuthCard>
     showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('An error occurred'),
-        content: Text(message),
+        title: Text(
+          'An error occurred',
+          style: GoogleFonts.raleway(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+        content: Text(
+          message,
+          style: GoogleFonts.raleway(fontSize: 16),
+        ),
         actions: [
           FlatButton(
             onPressed: () {
               Navigator.of(ctx).pop();
             },
-            child: Text('Okay'),
+            child: Text(
+              'Okay',
+              style: GoogleFonts.raleway(color: Colors.red),
+            ),
           )
         ],
       ),
