@@ -80,15 +80,15 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: IconButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            icon: menuButton,
-            onPressed: () => scaffoldKey.currentState.openDrawer(),
-          ),
-        ),
+        // leading: Padding(
+        //   padding: const EdgeInsets.only(left: 10),
+        //   child: IconButton(
+        //     splashColor: Colors.transparent,
+        //     highlightColor: Colors.transparent,
+        //     icon: menuButton,
+        //     onPressed: () => scaffoldKey.currentState.openDrawer(),
+        //   ),
+        // ),
         iconTheme: IconThemeData(color: Colors.red),
         title: Text(
           'Soulll Shop',
@@ -134,7 +134,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         ],
       ),
       key: scaffoldKey,
-      drawer: AppDrawer(),
+      // drawer: AppDrawer(),
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(
