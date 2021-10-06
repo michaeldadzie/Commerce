@@ -18,19 +18,19 @@ class OrdersScreen extends StatelessWidget {
           'My Orders',
           style: GoogleFonts.raleway(color: Colors.red),
         ),
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: IconButton(
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-            icon: menuButton,
-            onPressed: () => scaffoldKey.currentState.openDrawer(),
-          ),
-        ),
+        // leading: Padding(
+        //   padding: const EdgeInsets.only(left: 10),
+        //   child: IconButton(
+        //     splashColor: Colors.transparent,
+        //     highlightColor: Colors.transparent,
+        //     icon: menuButton,
+        //     onPressed: () => scaffoldKey.currentState.openDrawer(),
+        //   ),
+        // ),
         iconTheme: IconThemeData(color: Colors.red),
       ),
       key: scaffoldKey,
-      drawer: AppDrawer(),
+      // drawer: AppDrawer(),
       body: FutureBuilder(
         future: Provider.of<Orders>(context, listen: false).fetchAndSetOrders(),
         builder: (ctx, dataSnapshot) {
@@ -44,13 +44,18 @@ class OrdersScreen extends StatelessWidget {
             if (dataSnapshot.error != null) {
               //TODO: error handling stuff
               return Center(
-                child: Text('An error occurred!'),
+                child: Text(
+                  'An error occurred!',
+                  style: GoogleFonts.raleway(),
+                ),
               );
             } else {
               return Consumer<Orders>(
                 builder: (ctx, orderData, child) => ListView.builder(
                   itemCount: orderData.orders.length,
-                  itemBuilder: (ctx, i) => OrderItem(orderData.orders[i]),
+                  itemBuilder: (ctx, i) => OrderItem(
+                    orderData.orders[i],
+                  ),
                 ),
               );
             }
