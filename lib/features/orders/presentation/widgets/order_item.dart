@@ -26,9 +26,34 @@ class _OrderItemState extends State<OrderItem> {
         child: Column(
           children: [
             ListTile(
-              title: Text('\$${widget.order.amount.toStringAsFixed(2)}'),
+              title:
+                  // Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //     children: widget.order.products
+                  //         .map(
+                  //           (prod) => Row(
+                  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //             children: [
+                  //               Text(
+                  //                 '\GH¢${widget.order.amount.toStringAsFixed(2)}',
+                  //                 style: GoogleFonts.lato(fontSize: 17),
+                  //               ),
+                  //               Text(
+                  //                 '${prod.quantity}x \$${prod.price}',
+                  //                 style: GoogleFonts.raleway(
+                  //                     fontSize: 18, color: Colors.grey),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         )
+                  //         .toList()),
+                  Text(
+                '\GH¢${widget.order.amount.toStringAsFixed(2)}',
+                style: GoogleFonts.lato(fontSize: 17),
+              ),
               subtitle: Text(
                 DateFormat('dd/MM/yyyy hh:mm').format(widget.order.dateTime),
+                style: GoogleFonts.lato(fontSize: 15),
               ),
               trailing: IconButton(
                 icon: Icon(_expanded ? Icons.expand_less : Icons.expand_more),
@@ -55,12 +80,12 @@ class _OrderItemState extends State<OrderItem> {
                               prod.title,
                               style: GoogleFonts.raleway(fontSize: 18),
                             ),
-                            SizedBox(height: 5),
-                            Text(
-                              '${prod.quantity}x \$${prod.price}',
-                              style: GoogleFonts.raleway(
-                                  fontSize: 18, color: Colors.grey),
-                            ),
+                            // SizedBox(height: 5),
+                            // Text(
+                            //   '${prod.quantity}x \$${prod.price}',
+                            //   style: GoogleFonts.raleway(
+                            //       fontSize: 18, color: Colors.grey),
+                            // ),
                           ],
                         ),
                       )
