@@ -17,7 +17,7 @@ class CartScreen extends StatelessWidget {
           'Your cart',
           style: GoogleFonts.raleway(color: Colors.red),
         ),
-        iconTheme: new IconThemeData(color: Theme.of(context).accentColor),
+        iconTheme: new IconThemeData(color: Colors.red),
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
       ),
