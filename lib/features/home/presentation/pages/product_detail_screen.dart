@@ -56,6 +56,7 @@ class ProductDetailScreen extends StatelessWidget {
             ),
           ),
         ],
+        iconTheme: new IconThemeData(color: Colors.red),
       ),
       body: SafeArea(
         child: Column(
