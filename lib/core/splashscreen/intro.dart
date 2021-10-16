@@ -14,14 +14,15 @@ class _IntroState extends State<Intro> {
   List<Map<String, String>> splashData = [
     {
       "text": "Start your soulll shop journey now",
+      "image": "assets/images/icon.png"
+    },
+    {
+      "text":
+          "Get started it's easy, create an account or login and start browsing through products",
       "image": "assets/images/product-loading.gif"
     },
     {
-      "text": "Welcome to the Qfood checker App",
-      "image": "assets/images/product-loading.gif"
-    },
-    {
-      "text": "Welcome to the Qfood checker App",
+      "text": "Add products to your cart, check previous orders",
       "image": "assets/images/product-loading.gif"
     },
   ];
