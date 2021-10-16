@@ -18,6 +18,7 @@ class Constants {
     primaryColor: lightPrimary,
     accentColor: lightAccent,
     cursorColor: lightAccent,
+    cardColor: Color(0xfffcfcff),
     // pageTransitionsTheme: PageTransitionsTheme(
     //   builders: {
     //     TargetPlatform.android: CustomPageTransitionBuilder(),
@@ -46,6 +47,7 @@ class Constants {
     backgroundColor: darkBG,
     primaryColor: darkPrimary,
     accentColor: darkAccent,
+    cardColor: darkPrimary,
     // pageTransitionsTheme: PageTransitionsTheme(
     //   builders: {
     //     TargetPlatform.android: CustomPageTransitionBuilder(),
