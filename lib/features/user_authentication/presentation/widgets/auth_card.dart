@@ -161,10 +161,11 @@ class _AuthCardState extends State<AuthCard>
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     return Card(
+      color: Theme.of(context).cardColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      elevation: 3,
+      elevation: 0,
       child: AnimatedBuilder(
         animation: _heighAnimation,
         builder: (ctx, ch) => Container(
@@ -173,7 +174,7 @@ class _AuthCardState extends State<AuthCard>
             constraints: BoxConstraints(
               minHeight: _heighAnimation.value.height,
             ),
-            width: deviceSize.width * 0.75,
+            width: MediaQuery.of(context).size.width,
             padding: EdgeInsets.all(16.0),
             child: ch),
         child: Form(
