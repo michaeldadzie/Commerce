@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'file:///D:/AndroidStudioProjects/shop_app/lib/features/home/presentation/providers/products.dart';
-import 'file:///D:/AndroidStudioProjects/shop_app/lib/features/account/presentation/pages/edit_product_screen.dart';
+import 'package:shop_app/features/account/presentation/pages/edit_product_screen.dart';
+import 'package:shop_app/features/home/presentation/providers/products.dart';
 
 class UserProductItem extends StatelessWidget {
   final String id;
@@ -16,6 +16,7 @@ class UserProductItem extends StatelessWidget {
         title: Text(title),
         leading: CircleAvatar(
           backgroundImage: NetworkImage(imageUrl),
+          backgroundColor: Colors.transparent,
         ),
         trailing: Container(
           width: 100,
