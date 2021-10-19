@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shop_app/core/utils/screen_sizes.dart';
+import 'package:shop_app/core/utils/syka_icons_icons.dart';
 import 'package:shop_app/features/account/presentation/pages/account_screen.dart';
 import 'package:shop_app/features/orders/presentation/pages/orders_screen.dart';
 import 'package:shop_app/features/home/presentation/pages/product_overview_screen.dart';
@@ -71,15 +73,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
           items: [
             BottomNavigationBarItem(
                 backgroundColor: Colors.white,
-                icon: Icon(Icons.home_filled),
+                icon: Icon(Feather.home),
                 label: ''),
             BottomNavigationBarItem(
                 backgroundColor: Colors.white,
-                icon: Icon(Icons.bookmark_border),
+                icon: Icon(FontAwesome5.list_alt),
                 label: ''),
             BottomNavigationBarItem(
                 backgroundColor: Colors.white,
-                icon: Icon(Icons.person),
+                icon: Icon(FontAwesome5.user),
                 label: ''),
           ],
         ),
