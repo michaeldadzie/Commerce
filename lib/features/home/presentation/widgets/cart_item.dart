@@ -49,7 +49,7 @@ class CartItem extends StatelessWidget {
                     FlatButton(
                         child: Text(
                           'No',
-                          style: GoogleFonts.raleway(),
+                          style: GoogleFonts.raleway(color: Colors.red),
                         ),
                         onPressed: () {
                           Navigator.of(ctx).pop(false);
@@ -57,7 +57,7 @@ class CartItem extends StatelessWidget {
                     FlatButton(
                         child: Text(
                           'Yes',
-                          style: GoogleFonts.raleway(),
+                          style: GoogleFonts.raleway(color: Colors.red),
                         ),
                         onPressed: () {
                           Navigator.of(ctx).pop(true);
@@ -76,20 +76,20 @@ class CartItem extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(8),
           child: ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Colors.red,
-              radius: 30,
-              child: Padding(
-                padding: EdgeInsets.all(5),
-                child: FittedBox(
-                  child: Text(
-                    '\GH¢$price',
-                    style: GoogleFonts.lato(
-                        color: Theme.of(context).accentColor, fontSize: 15),
-                  ),
-                ),
-              ),
-            ),
+            // leading: CircleAvatar(
+            //   backgroundColor: Colors.red,
+            //   radius: 30,
+            //   child: Padding(
+            //     padding: EdgeInsets.all(5),
+            //     child: FittedBox(
+            //       child: Text(
+            //         '\GH¢$price',
+            //         style: GoogleFonts.lato(
+            //             color: Theme.of(context).accentColor, fontSize: 15),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             title: Text(
               title,
               style: GoogleFonts.raleway(
