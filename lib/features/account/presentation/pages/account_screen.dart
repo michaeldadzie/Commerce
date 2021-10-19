@@ -1,18 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/core/widgets/app_drawer.dart';
+import 'package:shop_app/features/account/presentation/pages/settings_screen.dart';
+import 'package:shop_app/features/account/presentation/pages/setup_user_profile.dart';
 import 'package:shop_app/features/account/presentation/pages/user_products_screen.dart';
 import 'package:shop_app/features/account/presentation/widgets/custom_list_tile.dart';
 import 'package:shop_app/features/account/presentation/widgets/user_product_item.dart';
 import 'package:shop_app/features/user_authentication/presentation/pages/auth_screen.dart';
 import 'package:shop_app/features/user_authentication/presentation/providers/auth.dart';
 
+import 'about_screen.dart';
+
 class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
           'My Account',
@@ -49,7 +55,7 @@ class AccountScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        'dadziemikke2@gmail.com',
+                        'soulll@gmail.com',
                         style: GoogleFonts.raleway(
                           fontSize: 15,
                           fontWeight: FontWeight.w400,
@@ -73,25 +79,39 @@ class AccountScreen extends StatelessWidget {
               ),
               SizedBox(height: 40),
               CustomListTile(
-                  tap: () {
-                    Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                        builder: (context) => UserProductsScreen(),
-                      ),
-                    );
-                  },
-                  name: 'Manage Products',
-                  icon: Icons.edit),
+                tap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => UserProfile(),
+                    ),
+                  );
+                },
+                name: 'Setup Profile',
+                icon: AntDesign.user,
+              ),
               SizedBox(height: 25),
               CustomListTile(
                 tap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   CupertinoPageRoute(
-                  //     builder: (context) => SettingsScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => UserProductsScreen(),
+                    ),
+                  );
+                },
+                name: 'Manage Products',
+                icon: Icons.edit,
+              ),
+              SizedBox(height: 25),
+              CustomListTile(
+                tap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => SettingsScreen(),
+                    ),
+                  );
                 },
                 name: 'Settings',
                 icon: Icons.settings_outlined,
@@ -99,12 +119,12 @@ class AccountScreen extends StatelessWidget {
               SizedBox(height: 25),
               CustomListTile(
                 tap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   CupertinoPageRoute(
-                  //     builder: (context) => AboutScreen(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (context) => AboutScreen(),
+                    ),
+                  );
                 },
                 name: 'About',
                 icon: Icons.info_outlined,
