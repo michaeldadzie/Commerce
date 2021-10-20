@@ -106,6 +106,8 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               icon: Icon(
                 FontAwesome.shopping_cart,
               ),
+              highlightColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onPressed: () {
                 Navigator.of(context).pushNamed(CartScreen.routeName);
               },
@@ -124,10 +126,16 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
             icon: Icon(Icons.more_vert),
             itemBuilder: (_) => [
               PopupMenuItem(
-                  child: Text('Only Favorites'),
+                  child: Text(
+                    'Only Favorites',
+                    style: GoogleFonts.raleway(),
+                  ),
                   value: FilterOptions.Favorites),
               PopupMenuItem(
-                child: Text('Show All'),
+                child: Text(
+                  'Show All',
+                  style: GoogleFonts.raleway(),
+                ),
                 value: FilterOptions.All,
               ),
             ],
