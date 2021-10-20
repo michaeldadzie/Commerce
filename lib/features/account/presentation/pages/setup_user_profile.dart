@@ -317,14 +317,12 @@ class _UserProfileState extends State<UserProfile> {
                                   Icons.close,
                                   color: Theme.of(context).accentColor,
                                 ),
-                                dialogTextStyle: TextStyle(
-                                    fontFamily: 'Raleway',
+                                dialogTextStyle: GoogleFonts.raleway(
                                     color: Theme.of(context).accentColor),
                                 dialogBackgroundColor:
                                     Theme.of(context).focusColor,
                                 hideSearch: true,
-                                textStyle: TextStyle(
-                                    fontFamily: 'Roboto',
+                                textStyle: GoogleFonts.raleway(
                                     fontSize: 15,
                                     color: Theme.of(context).accentColor),
                               ),
