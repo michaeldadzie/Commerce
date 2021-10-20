@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,10 @@ import 'features/account/presentation/pages/user_products_screen.dart';
 import 'features/home/presentation/pages/product_detail_screen.dart';
 import 'features/home/presentation/providers/products.dart';
 import 'core/utils/theme.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:flutter/services.dart';
+import 'features/account/data/model/user.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,10 +30,25 @@ void main() async {
       statusBarColor: Colors.transparent, // status bar color
     ),
   );
-  runApp(MyApp());
+  final Box<UserInfoModel> _userInfoBox = await _userInfoSetup();
+  runApp(MyApp(
+    userInfoBox: _userInfoBox,
+  ));
+}
+
+Future<Box<UserInfoModel>> _userInfoSetup() async {
+  Directory document = await getApplicationDocumentsDirectory();
+  Hive.init(document.path);
+  Hive.registerAdapter(UserInfoModelAdapter());
+  final Box<UserInfoModel> _userInfoBox =
+      await Hive.openBox<UserInfoModel>('userInfoModel');
+  return _userInfoBox;
 }
 
 class MyApp extends StatelessWidget {
+  final Box<UserInfoModel> userInfoBox;
+  MyApp({this.userInfoBox});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -56,6 +75,7 @@ class MyApp extends StatelessWidget {
             previousOrders == null ? [] : previousOrders.orders,
           ),
         ),
+        Provider(create: (_) => userInfoBox),
       ],
       child: Consumer<Auth>(
         builder: (ctx, auth, _) => MaterialApp(
