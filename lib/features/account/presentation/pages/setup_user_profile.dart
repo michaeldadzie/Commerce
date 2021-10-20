@@ -4,6 +4,8 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
+import 'package:shop_app/core/widgets/bottom_nav.dart';
+import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shop_app/features/account/data/model/user.dart';
 import 'package:shop_app/features/account/presentation/widgets/custom_textfield_container.dart';
@@ -17,7 +19,6 @@ class _UserProfileState extends State<UserProfile> {
   final firestoreInstance = FirebaseFirestore.instance;
   File _image;
   bool _validate = false;
-  DateTime selectedDate = DateTime.now();
   final fname = TextEditingController();
   final lname = TextEditingController();
   final tnumber = TextEditingController();
@@ -41,7 +42,6 @@ class _UserProfileState extends State<UserProfile> {
     fname.dispose();
     lname.dispose();
     tnumber.dispose();
-    dob.dispose();
     ccode.dispose();
     super.dispose();
   }
@@ -107,6 +107,8 @@ class _UserProfileState extends State<UserProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final Box<UserInfoModel> _userInfoBox =
+        Provider.of<Box<UserInfoModel>>(context);
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -175,24 +177,21 @@ class _UserProfileState extends State<UserProfile> {
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: TextField(
                           controller: fname,
-                          style: TextStyle(
-                            fontFamily: 'Raleway',
+                          style: GoogleFonts.raleway(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context).focusColor,
+                            color: Theme.of(context).accentColor,
                           ),
                           decoration: InputDecoration(
                             errorText:
                                 _validate ? 'Value can\'t be empty' : null,
-                            errorStyle: TextStyle(
-                              fontFamily: 'Raleway',
+                            errorStyle: GoogleFonts.raleway(
                               fontSize: 12,
                               fontWeight: FontWeight.w300,
                               color: Colors.red,
                             ),
                             border: InputBorder.none,
-                            hintStyle: TextStyle(
-                              fontFamily: 'Raleway',
+                            hintStyle: GoogleFonts.raleway(
                               fontSize: 18,
                               fontWeight: FontWeight.w100,
                               color: Colors.grey,
@@ -210,24 +209,21 @@ class _UserProfileState extends State<UserProfile> {
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: TextField(
                           controller: lname,
-                          style: TextStyle(
-                            fontFamily: 'Raleway',
+                          style: GoogleFonts.raleway(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Theme.of(context).focusColor,
+                            color: Theme.of(context).accentColor,
                           ),
                           decoration: InputDecoration(
                             errorText:
                                 _validate ? 'Value can\'t be empty' : null,
-                            errorStyle: TextStyle(
-                              fontFamily: 'Raleway',
+                            errorStyle: GoogleFonts.raleway(
                               fontSize: 12,
                               fontWeight: FontWeight.w300,
                               color: Colors.red,
                             ),
                             border: InputBorder.none,
-                            hintStyle: TextStyle(
-                              fontFamily: 'Raleway',
+                            hintStyle: GoogleFonts.raleway(
                               fontSize: 18,
                               fontWeight: FontWeight.w100,
                               color: Colors.grey,
@@ -239,7 +235,7 @@ class _UserProfileState extends State<UserProfile> {
                     SizedBox(height: 15),
                     Text(
                       'Telephone Number',
-                      style: GoogleFonts.raleway(
+                      style: GoogleFonts.lato(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).accentColor,
@@ -263,23 +259,21 @@ class _UserProfileState extends State<UserProfile> {
                               child: TextField(
                                 controller: tnumber,
                                 keyboardType: TextInputType.number,
-                                style: GoogleFonts.raleway(
+                                style: GoogleFonts.lato(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Theme.of(context).focusColor),
+                                    color: Theme.of(context).accentColor),
                                 decoration: InputDecoration(
                                   errorText: _validate
                                       ? 'Value can\'t be empty'
                                       : null,
-                                  errorStyle: TextStyle(
-                                    fontFamily: 'Raleway',
+                                  errorStyle: GoogleFonts.raleway(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w300,
                                     color: Colors.red,
                                   ),
                                   border: InputBorder.none,
-                                  hintStyle: TextStyle(
-                                    fontFamily: 'Raleway',
+                                  hintStyle: GoogleFonts.raleway(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w100,
                                     color: Colors.grey,
@@ -356,23 +350,21 @@ class _UserProfileState extends State<UserProfile> {
                                 : _validate = false;
                           });
                           //alert users to fill every field
-                          // _saveUserInfoToHive(_userInfoBox);
+                          _saveUserInfoToHive(_userInfoBox);
                           firestoreInstance.collection("users").add({
                             "fname": fname.text,
                             "lname": lname.text,
-                            "dob": selectedDate,
                             "telephone": {
-                              "ccode": ccode.text,
+                              "ccode": ccode.text == null ? '+233' : ccode.text,
                               "tnumber": tnumber.text
                             }
                           }).then((value) {
                             print(value.id);
                           });
-                          Navigator.pushNamedAndRemoveUntil(
-                            context,
-                            '/',
-                            (Route<dynamic> route) => false,
-                          );
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                  builder: (context) => BottomNavBar()),
+                              (Route<dynamic> route) => false);
                         },
                         child: Text(
                           'Save',
