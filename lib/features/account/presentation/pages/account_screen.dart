@@ -35,15 +35,6 @@ class _AccountScreenState extends State<AccountScreen> {
           'My Account',
           style: GoogleFonts.raleway(color: Colors.red),
         ),
-        // leading: Padding(
-        //   padding: const EdgeInsets.only(left: 10),
-        //   child: IconButton(
-        //     splashColor: Colors.transparent,
-        //     highlightColor: Colors.transparent,
-        //     icon: menuButton,
-        //     onPressed: () => scaffoldKey.currentState.openDrawer(),
-        //   ),
-        // ),
         iconTheme: IconThemeData(color: Colors.red),
       ),
       key: scaffoldKey,
